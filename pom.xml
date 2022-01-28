@@ -20,6 +20,7 @@
         <module>cloud-test-eureka</module>
         <module>cloud-test-user</module>
         <module>cloud-test-service</module>
+        <module>auto-generator</module>
     </modules>
 
 
