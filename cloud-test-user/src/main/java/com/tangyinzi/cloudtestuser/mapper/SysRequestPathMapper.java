@@ -1,21 +1,16 @@
 package com.tangyinzi.cloudtestuser.mapper;
 
-import com.tangyinzi.cloudtestuser.modle.SysRequestPath;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import com.tangyinzi.cloudtestuser.model.SysRequestPath;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-@Mapper
-@Repository
-public interface SysRequestPathMapper {
-    int deleteByPrimaryKey(Integer id);
+/**
+ * <p>
+ * 请求路径 Mapper 接口
+ * </p>
+ *
+ * @author tangyinzi
+ * @since 2022-02-04
+ */
+public interface SysRequestPathMapper extends BaseMapper<SysRequestPath> {
 
-    int insert(SysRequestPath record);
-
-    int insertSelective(SysRequestPath record);
-
-    SysRequestPath selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(SysRequestPath record);
-
-    int updateByPrimaryKey(SysRequestPath record);
 }

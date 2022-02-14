@@ -1,21 +1,16 @@
 package com.tangyinzi.cloudtestuser.mapper;
 
-import com.tangyinzi.cloudtestuser.modle.SysUserRoleRelation;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import com.tangyinzi.cloudtestuser.model.SysUserRoleRelation;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-@Mapper
-@Repository
-public interface SysUserRoleRelationMapper {
-    int deleteByPrimaryKey(Integer id);
+/**
+ * <p>
+ * 用户角色关联关系表 Mapper 接口
+ * </p>
+ *
+ * @author tangyinzi
+ * @since 2022-02-04
+ */
+public interface SysUserRoleRelationMapper extends BaseMapper<SysUserRoleRelation> {
 
-    int insert(SysUserRoleRelation record);
-
-    int insertSelective(SysUserRoleRelation record);
-
-    SysUserRoleRelation selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(SysUserRoleRelation record);
-
-    int updateByPrimaryKey(SysUserRoleRelation record);
 }

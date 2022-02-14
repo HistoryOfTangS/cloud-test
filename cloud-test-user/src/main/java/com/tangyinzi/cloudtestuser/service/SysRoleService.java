@@ -1,24 +1,16 @@
-/*
- * Copyright (c) 2014-2020 杭州派迩信息技术有限公司 All Rights Reserved.
- * ProjectName: micro_server
- * ModuleName: micro_server
- * FileName: SysRoleService.java
- * Author: tangyiner
- * Date: 2020/09/07 10:19:07
- * Version: 1.0
- * LastModified: 2020/09/07 10:19:07
- */
-
 package com.tangyinzi.cloudtestuser.service;
 
-/**
- * @className: SysRoleService
- * @description: 用户角色表服务接口
- * @author: tangyiner
- * @date: 2020/09/07 10:19:07
- * @since: 1.0
- */
+import com.tangyinzi.cloudtestuser.model.SysRole;
+import com.baomidou.mybatisplus.extension.service.IService;
 
-public interface SysRoleService {
+/**
+ * <p>
+ * 用户角色表 服务类
+ * </p>
+ *
+ * @author tangyinzi
+ * @since 2022-02-04
+ */
+public interface SysRoleService extends IService<SysRole> {
 
 }

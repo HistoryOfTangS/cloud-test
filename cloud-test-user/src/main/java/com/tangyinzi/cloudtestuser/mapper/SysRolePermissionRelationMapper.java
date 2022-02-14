@@ -1,20 +1,16 @@
 package com.tangyinzi.cloudtestuser.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import com.tangyinzi.cloudtestuser.model.SysRolePermissionRelation;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-@Mapper
-@Repository
-public interface SysRolePermissionRelationMapper {
-    int deleteByPrimaryKey(Integer id);
+/**
+ * <p>
+ * 角色-权限关联关系表 Mapper 接口
+ * </p>
+ *
+ * @author tangyinzi
+ * @since 2022-02-04
+ */
+public interface SysRolePermissionRelationMapper extends BaseMapper<SysRolePermissionRelation> {
 
-    int insert(SysRolePermissionRelationMapper record);
-
-    int insertSelective(SysRolePermissionRelationMapper record);
-
-    SysRolePermissionRelationMapper selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(SysRolePermissionRelationMapper record);
-
-    int updateByPrimaryKey(SysRolePermissionRelationMapper record);
 }

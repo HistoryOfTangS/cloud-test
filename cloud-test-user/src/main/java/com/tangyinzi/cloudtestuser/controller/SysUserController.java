@@ -1,36 +1,36 @@
-/*
- * Copyright (c) 2014-2020 杭州派迩信息技术有限公司 All Rights Reserved.
- * ProjectName: micro_server
- * ModuleName: micro_server
- * FileName: SysUserController.java
- * Author: tangyiner
- * Date: 2020/09/07 10:19:07
- * Version: 1.0
- * LastModified: 2020/09/07 10:19:07
- */
-
 package com.tangyinzi.cloudtestuser.controller;
 
-import com.tangyinzi.cloudtestuser.service.SysUserService;
-import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
+import com.tangyinzi.cloudtestuser.model.SysUser;
+import com.tangyinzi.cloudtestuser.service.SysUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
- * @className: SysUserController
- * @description: 用户表前端控制器
- * @author: tangyiner
- * @date: 2020/09/07 10:19:07
- * @since: 1.0
+ * <p>
+ * 用户表 前端控制器
+ * </p>
+ *
+ * @author tangyinzi
+ * @since 2022-02-04
  */
-
 @RestController
-@Api(tags = "SysUser", value = "用户表管理")
-@RequestMapping("/sysUser")
+@RequestMapping("/cloudtestuser/sys-user")
 public class SysUserController {
 
     @Autowired
     private SysUserService sysUserService;
 
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public List<SysUser> getUserList() throws InterruptedException {
+        Thread.sleep(10000);
+        return sysUserService.list();
+    }
+
 }
+

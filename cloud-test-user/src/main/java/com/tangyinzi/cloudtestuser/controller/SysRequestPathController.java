@@ -1,37 +1,21 @@
-/*
- * Copyright (c) 2014-2020 杭州派迩信息技术有限公司 All Rights Reserved.
- * ProjectName: micro_server
- * ModuleName: micro_server
- * FileName: SysRequestPathController.java
- * Author: tangyiner
- * Date: 2020/09/07 10:19:07
- * Version: 1.0
- * LastModified: 2020/09/07 10:19:07
- */
-
 package com.tangyinzi.cloudtestuser.controller;
 
-import com.tangyinzi.cloudtestuser.service.SysRequestPathService;
-import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @className: SysRequestPathController
- * @description: 请求路径前端控制器
- * @author: tangyiner
- * @date: 2020/09/07 10:19:07
- * @since: 1.0
+ * <p>
+ * 请求路径 前端控制器
+ * </p>
+ *
+ * @author tangyinzi
+ * @since 2022-02-04
  */
-
 @RestController
-@Api(tags = "SysRequestPath", value = "请求路径管理")
-
-@RequestMapping("/sysRequestPath")
+@RequestMapping("/cloudtestuser/sys-request-path")
 public class SysRequestPathController {
 
-    @Autowired
-    private SysRequestPathService sysRequestPathService;
-
 }
+

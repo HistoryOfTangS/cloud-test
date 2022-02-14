@@ -1,28 +1,20 @@
-/*
- * Copyright (c) 2014-2020 杭州派迩信息技术有限公司 All Rights Reserved.
- * ProjectName: micro_server
- * ModuleName: micro_server
- * FileName: SysRolePermissionRelationServiceImpl.java
- * Author: tangyiner
- * Date: 2020/09/07 10:19:07
- * Version: 1.0
- * LastModified: 2020/09/07 10:19:07
- */
-
 package com.tangyinzi.cloudtestuser.service.impl;
 
+import com.tangyinzi.cloudtestuser.model.SysRolePermissionRelation;
+import com.tangyinzi.cloudtestuser.mapper.SysRolePermissionRelationMapper;
 import com.tangyinzi.cloudtestuser.service.SysRolePermissionRelationService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
- * @className: SysRolePermissionRelationServiceImpl
- * @description: 角色-权限关联关系表服务实现类
- * @author: tangyiner
- * @date: 2020/09/07 10:19:07
- * @since: 1.0
+ * <p>
+ * 角色-权限关联关系表 服务实现类
+ * </p>
+ *
+ * @author tangyinzi
+ * @since 2022-02-04
  */
-
 @Service
-public class SysRolePermissionRelationServiceImpl implements SysRolePermissionRelationService {
+public class SysRolePermissionRelationServiceImpl extends ServiceImpl<SysRolePermissionRelationMapper, SysRolePermissionRelation> implements SysRolePermissionRelationService {
 
 }

@@ -1,21 +1,16 @@
 package com.tangyinzi.cloudtestuser.mapper;
 
-import com.tangyinzi.cloudtestuser.modle.SysPermission;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import com.tangyinzi.cloudtestuser.model.SysPermission;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-@Mapper
-@Repository
-public interface SysPermissionMapper {
-    int deleteByPrimaryKey(Integer id);
+/**
+ * <p>
+ * 权限表 Mapper 接口
+ * </p>
+ *
+ * @author tangyinzi
+ * @since 2022-02-04
+ */
+public interface SysPermissionMapper extends BaseMapper<SysPermission> {
 
-    int insert(SysPermission record);
-
-    int insertSelective(SysPermission record);
-
-    SysPermission selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(SysPermission record);
-
-    int updateByPrimaryKey(SysPermission record);
 }

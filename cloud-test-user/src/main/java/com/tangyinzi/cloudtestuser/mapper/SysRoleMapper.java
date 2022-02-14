@@ -1,21 +1,16 @@
 package com.tangyinzi.cloudtestuser.mapper;
 
-import com.tangyinzi.cloudtestuser.modle.SysRole;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import com.tangyinzi.cloudtestuser.model.SysRole;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-@Mapper
-@Repository
-public interface SysRoleMapper {
-    int deleteByPrimaryKey(Integer id);
+/**
+ * <p>
+ * 用户角色表 Mapper 接口
+ * </p>
+ *
+ * @author tangyinzi
+ * @since 2022-02-04
+ */
+public interface SysRoleMapper extends BaseMapper<SysRole> {
 
-    int insert(SysRole record);
-
-    int insertSelective(SysRole record);
-
-    SysRole selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(SysRole record);
-
-    int updateByPrimaryKey(SysRole record);
 }

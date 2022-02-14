@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class CodeGenerator {
 
@@ -17,7 +17,7 @@ public class CodeGenerator {
         // Step2：全局配置
         GlobalConfig gc = new GlobalConfig();
         // 填写代码生成的目录(需要修改)
-        String projectPath = "D:\\sdts\\cloud-test\\auto-generator";
+        String projectPath = "D:\\learnProject\\cloud-test\\cloud-test-service";
         // 拼接出代码最终输出的目录
         gc.setOutputDir(projectPath + "/src/main/java");
         // 配置开发者信息（可选）（需要修改）
@@ -65,7 +65,7 @@ public class CodeGenerator {
         // Step5：策略配置（数据库表配置）
         StrategyConfig strategy = new StrategyConfig();
         // 指定表名（可以同时操作多个表，使用 , 隔开）（需要修改）
-        strategy.setInclude("wz_organization");
+        strategy.setInclude("countrylanguage", "country", "city");
         // 配置数据表与实体类名之间映射的策略
         strategy.setNaming(NamingStrategy.underline_to_camel);
         // 配置数据表的字段与实体类的属性名之间映射的策略
@@ -86,14 +86,14 @@ public class CodeGenerator {
         // Step3：数据源配置（需要修改）
         DataSourceConfig dsc = new DataSourceConfig();
         // 配置数据库 url 地址
-        dsc.setUrl("jdbc:mysql://192.168.0.244:3306/test?useSSL=false&useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=CONVERT_TO_NULL&jdbcCompliantTruncation=false&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false");
+        dsc.setUrl("jdbc:mysql://localhost:3306/world?useSSL=false&useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=CONVERT_TO_NULL&jdbcCompliantTruncation=false&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false");
         // dsc.setSchemaName("testMyBatisPlus"); // 可以直接在 url 中指定数据库名
         // 配置数据库驱动
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         // 配置数据库连接用户名
         dsc.setUsername("root");
         // 配置数据库连接密码
-        dsc.setPassword("AaQwer_123");
+        dsc.setPassword("123456");
         autoGenerator.setDataSource(dsc);
     }
 }

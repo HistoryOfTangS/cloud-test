@@ -1,25 +1,16 @@
-/*
- * Copyright (c) 2014-2020 杭州派迩信息技术有限公司 All Rights Reserved.
- * ProjectName: micro_server
- * ModuleName: micro_server
- * FileName: SysRequestPathService.java
- * Author: tangyiner
- * Date: 2020/09/07 10:19:07
- * Version: 1.0
- * LastModified: 2020/09/07 10:19:07
- */
-
 package com.tangyinzi.cloudtestuser.service;
 
+import com.tangyinzi.cloudtestuser.model.SysRequestPath;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
- * @className: SysRequestPathService
- * @description: 请求路径服务接口
- * @author: tangyiner
- * @date: 2020/09/07 10:19:07
- * @since: 1.0
+ * <p>
+ * 请求路径 服务类
+ * </p>
+ *
+ * @author tangyinzi
+ * @since 2022-02-04
  */
-
-public interface SysRequestPathService {
+public interface SysRequestPathService extends IService<SysRequestPath> {
 
 }
