@@ -14,6 +14,13 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>2020.0.0</spring-cloud.version>
+        <!-- 默认的docker仓库名称 -->
+        <!--        <registry.wzw>registry.wzw</registry.wzw>-->
+        <registry.wzw>tangyin.com</registry.wzw>
+        <!-- 默认版本是last如果不指定的话 -->
+        <docker.version>last</docker.version>
+        <!-- 是否跳过打docker镜像,当然根项目是不需要打镜像的, 所以为true -->
+        <docker.skip>true</docker.skip>
     </properties>
 
     <groupId>org.tangyinzi</groupId>
@@ -29,5 +36,31 @@
         <module>cloud-test-models</module>
     </modules>
 
+
+    <build>
+        <plugins>
+            <!--  docker打包插件 -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.10</version>
+                <configuration>
+                    <dockerfile>Dockerfile</dockerfile>
+                    <!-- 镜像版本 -->
+                    <tag>${docker.version}</tag>
+                    <!-- 是否跳过打docker镜像 -->
+                    <skip>${docker.skip}</skip>
+                    <!-- docker镜像名称 -->
+                    <!--                    <repository>${registry.wzw}:10003/wzw/${project.name}</repository>-->
+                    <repository>${registry.wzw}:5000/wzw/${project.name}</repository>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                    <pullNewerImage>false</pullNewerImage>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
 
 </project>

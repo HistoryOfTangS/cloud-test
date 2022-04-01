@@ -42,9 +42,9 @@ public class CityController {
 
     @RequestMapping(value = "/getUserById", method = RequestMethod.GET)
     public List<SysUser> getUserById(@RequestParam Integer id) {
-        List<SysUser> userList = userFeignClient.getUserList();
-        Map<Integer, List<SysUser>> listMap = userList.stream().collect(Collectors.groupingBy(SysUser::getId));
-        return listMap.get(id);
+        return userFeignClient.getUserList();
+        //Map<Integer, List<SysUser>> listMap = userList.stream().collect(Collectors.groupingBy(SysUser::getId));
+        //return listMap.get(id);
     }
 }
 

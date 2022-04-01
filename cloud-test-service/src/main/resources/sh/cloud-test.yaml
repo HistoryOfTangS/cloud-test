@@ -1,0 +1,47 @@
+# ==== manager-backend 管理后台 =====
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manager-alarm
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  progressDeadlineSeconds: 5
+  selector:
+    matchLabels:
+      app: manager-alarm
+  template:
+    metadata:
+      labels:
+        app: manager-alarm
+    spec:
+      containers:
+        - name: main
+          image: registry.cloud.weizhi.com:5000/wzw/manager-alarm:${version}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SERVER_PORT
+              value: "80"
+          ports:
+            - containerPort: 80
+              name: http
+
+# ==== manager-alarm =====
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: manager-alarm
+spec:
+  type: NodePort
+  selector:
+    app: manager-alarm
+  ports:
+    - port: 80
+      name: http
+      targetPort: http
+      nodePort: 30124
+
+

@@ -1,0 +1,90 @@
+# ==== cloud-test-service ====
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-test
+  labels:
+    app: nginx-deployment-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-test
+  template:
+    metadata:
+      labels:
+        app: nginx-test
+    spec:
+      containers:
+      - name: nginx-test
+        image: nginx:1.17.7
+        ports:
+        - containerPort: 8761
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-deployment-test
+spec:
+  selector:
+    app: nginx-deployment-test
+  ports:
+    - protocol: TCP
+      port: 9376
+      targetPort: 9376
+
+# ==== 时空云测试环境程序 =====
+#---
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: sdts-location
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: sdts-location
+#  template:
+#    metadata:
+#      labels:
+#        app: sdts-location
+#        logs: 'ignore'
+#    spec:
+#      containers:
+#        - name: main
+#          image: registry.cloud.weizhi.com:5000/wzw/sdts-location:${version}
+#          imagePullPolicy: IfNotPresent
+#          env:
+#            - name: SERVER_PORT
+#              value: "30008"
+#            - name: spring_profiles_active
+#              value: "releaseTest"
+#          ports:
+#            - containerPort: 30008
+#              name: http
+#          volumeMounts:
+#            - mountPath: /opt/sdts/file/images
+#              name: images-data
+#      volumes:
+#        - name: images-data
+#          hostPath:
+#            path: /opt/sdts/file/images
+#            type: DirectoryOrCreate
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: sdts-location
+#  labels:
+#    app: sdts-location
+#spec:
+#  type: NodePort
+#  selector:
+#    app: sdts-location
+#  ports:
+#    - port: 30008
+#      name: http
+#      targetPort: http
+#      nodePort: 30008

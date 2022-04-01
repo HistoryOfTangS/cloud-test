@@ -7,9 +7,9 @@ spring:
     name: cloud-test-user
 
   datasource:
-    url: jdbc:mysql://localhost:3306/world?useSSL=false&useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=CONVERT_TO_NULL&jdbcCompliantTruncation=false&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://192.168.0.244:3306/world?useSSL=false&useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=CONVERT_TO_NULL&jdbcCompliantTruncation=false&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false
     username: root
-    password: 123456
+    password: AaQwer_123
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     initialSize: 5

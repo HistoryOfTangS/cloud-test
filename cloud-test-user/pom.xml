@@ -10,6 +10,9 @@
 
 
 	<artifactId>cloud-test-user</artifactId>
+	<properties>
+		<docker.skip>false</docker.skip>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -86,11 +89,11 @@
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>3.5.1</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-mate-starter</artifactId>
 			<version>1.1.0</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

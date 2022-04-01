@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +30,16 @@ public class SysUserController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<SysUser> getUserList() throws InterruptedException {
         Thread.sleep(10000);
-        return sysUserService.list();
+        SysUser sysUser = new SysUser();
+        sysUser.setId(12312);
+        sysUser.setCreateUser(12313);
+        sysUser.setAccount("12345");
+        sysUser.setUpdateUser(123123);
+        List<SysUser> sysUsers = new ArrayList<>();
+        sysUsers.add(sysUser);
+        return sysUsers;
+        //Thread.sleep(10000);
+        //return sysUserService.list();
     }
 
 }

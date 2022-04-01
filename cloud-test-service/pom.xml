@@ -10,7 +10,16 @@
 
 	<artifactId>cloud-test-service</artifactId>
 	<name>cloud-test-service</name>
+
+
+	<!-- 项目版本属性 -->
+	<properties>
+		<!-- 是否跳过打docker镜像,当然根项目是不需要打镜像的, 所以为true -->
+		<docker.skip>false</docker.skip>
+	</properties>
+
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -28,12 +37,12 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-kubernetes</artifactId>
 			<version>1.1.10.RELEASE</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-kubernetes-ribbon</artifactId>
 			<version>1.1.10.RELEASE</version>
-		</dependency>-->
+		</dependency>
 		<!--<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
@@ -44,10 +53,10 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>-->
 
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
+		</dependency>-->
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix -->
 		<dependency>
@@ -106,11 +115,6 @@
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>3.5.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-mate-starter</artifactId>
-			<version>1.1.0</version>
 		</dependency>
 		<!-- 添加 模板引擎 依赖 -->
 		<dependency>

@@ -11,5 +11,9 @@
 
     <artifactId>demo2</artifactId>
 
+    <properties>
+        <docker.skip>true</docker.skip>
+    </properties>
+
 
 </project>
