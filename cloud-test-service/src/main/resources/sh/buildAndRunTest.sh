@@ -1,5 +1,5 @@
 #执行这个文件    ---
-#  生产和测试要修改最下面两行    sh /root/mytest/cloud-test/src/main/resources/sh/buildAndRunTest.sh
+#  生产和测试要修改最下面两行    sh /root/mytest/cloud-test/cloud-test-service/src/main/resources/sh/buildAndRunTest.sh
 
 
 export version=`sudo docker images | grep cloud-test-service | awk '{print $2}'|awk -F '-' '{print $1}' | tr -d "a-zA-Z" | awk '{print int($0)}' | sort -g | tail -1 | awk -F. '{print $1}'`
