@@ -36,6 +36,6 @@ mvn -s settings.xml -Dmaven.test.skip=true dockerfile:build dockerfile:push -pl 
 #git pull
 
 #测试环境
-cd /root/mytest/cloud-test/src/main/resources/sh
+cd /root/mytest/cloud-test/cloud-test-service/src/main/resources/sh
 envsubst < cloud-test.yaml | kubectl apply -f -
 

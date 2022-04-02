@@ -11,7 +11,7 @@
 
 	<artifactId>cloud-test-user</artifactId>
 	<properties>
-		<docker.skip>true</docker.skip>
+		<docker.skip>false</docker.skip>
 	</properties>
 
 	<dependencies>
