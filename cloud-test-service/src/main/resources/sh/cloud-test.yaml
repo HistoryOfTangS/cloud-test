@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: manager-alarm
+  name: cloud-test-service
 spec:
   replicas: 1
   strategy:
@@ -11,15 +11,15 @@ spec:
   progressDeadlineSeconds: 5
   selector:
     matchLabels:
-      app: manager-alarm
+      app: cloud-test-service
   template:
     metadata:
       labels:
-        app: manager-alarm
+        app: cloud-test-service
     spec:
       containers:
         - name: main
-          image: registry.cloud.weizhi.com:5000/wzw/manager-alarm:${version}
+          image: registry.cloud.weizhi.com:5000/wzw/cloud-test-service:${version}
           imagePullPolicy: IfNotPresent
           env:
             - name: SERVER_PORT
@@ -33,11 +33,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: manager-alarm
+  name: cloud-test-service
 spec:
   type: NodePort
   selector:
-    app: manager-alarm
+    app: cloud-test-service
   ports:
     - port: 80
       name: http
