@@ -29,7 +29,7 @@ public class SysUserController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<SysUser> getUserList() throws InterruptedException {
-        Thread.sleep(10000);
+        //Thread.sleep(10000);
         SysUser sysUser = new SysUser();
         sysUser.setId(12312);
         sysUser.setCreateUser(12313);
