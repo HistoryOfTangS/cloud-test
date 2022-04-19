@@ -4,10 +4,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloud-test-service
-rules:
-  - apiGroups: [""]
-    resources: ["endpoints"]
-    verbs: ["get", "watch", "list"]
 spec:
   replicas: 1
   strategy:
