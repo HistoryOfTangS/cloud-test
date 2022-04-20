@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: 36.139.2.66
+  - host: cloudtest.com
     http:
       paths:
       - path: /cloudtestuser
