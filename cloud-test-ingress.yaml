@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cloud-test
+  namespace: default
+spec:
+  rules:
+  - host: 36.139.2.66
+    http:
+      paths:
+      - path: /cloudtestuser
+        backend:
+          service:
+            name: cloud-test-user
+            port:
+              number: 30125
+        pathType: ImplementationSpecific
+      - path: /cloudtestservice
+        backend:
+          service:
+            name: cloud-test-service
+            port:
+              number: 30124
+        pathType: ImplementationSpecific
