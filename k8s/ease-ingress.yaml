@@ -1,0 +1,85 @@
+#部署 Easegress 入口控制器
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: easegress-ingress
+  name: easegress
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: easegress-ingress
+  template:
+    metadata:
+      labels:
+        app: easegress-ingress
+    spec:
+      serviceAccountName: easegress-ingress-controller
+      containers:
+        - args:
+            - -c
+            - |-
+              /opt/easegress/bin/easegress-server \
+                -f /opt/eg-config/easegress-server.yaml \
+                --initial-object-config-files /opt/eg-config/controller.yaml \
+                --initial-cluster $(EG_NAME)=http://localhost:2380
+          command:
+            - /bin/sh
+          env:
+            - name: EG_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+          image: megaease/easegress:latest
+          imagePullPolicy: IfNotPresent
+          name: easegress-primary
+          resources:
+            limits:
+              cpu: 1200m
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+          volumeMounts:
+            - mountPath: /opt/eg-config/easegress-server.yaml
+              name: easegress-cm
+              subPath: easegress-server.yaml
+            - mountPath: /opt/eg-config/controller.yaml
+              name: easegress-cm
+              subPath: controller.yaml
+            - mountPath: /opt/easegress/data
+              name: ingress-data-volume
+            - mountPath: /opt/easegress/log
+              name: ingress-data-volume
+      restartPolicy: Always
+      volumes:
+        - emptyDir: {}
+          name: ingress-data-volume
+        - configMap:
+            defaultMode: 420
+            items:
+              - key: easegress-server.yaml
+                path: easegress-server.yaml
+              - key: controller.yaml
+                path: controller.yaml
+            name: easegress-cm
+          name: easegress-cm
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: easegress-public
+  namespace: default
+spec:
+  ports:
+    - name: web
+      protocol: TCP
+      port: 8080
+      nodePort: 30080
+  selector:
+    app: easegress-ingress
+  type: NodePort
