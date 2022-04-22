@@ -3,6 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: cloud-test-ingress
+  namespace: nginx-ingress
 spec:
   ingressClassName: nginx
   rules:
