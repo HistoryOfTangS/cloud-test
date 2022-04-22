@@ -2,9 +2,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: cloud-test
+  name: cloud-test-ingress
 spec:
-  ingressClassName: easegress
+  ingressClassName: nginx
   rules:
     - host: www.test.cloud.com
       http:
