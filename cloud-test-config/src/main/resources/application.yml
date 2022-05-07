@@ -1,0 +1,36 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: cloud-test-config
+  cloud:
+    config:
+      server:
+        git:
+          ####搜索目录,当配置文件在git仓库的多级目录中时，需指定，否则SpringCloudConfig默认只会在Git仓库根目录寻找
+          search-paths:
+            - /** #git仓库下所有目录
+            - /cloud-test-config #指定目录 有多个路径使用逗号隔开
+          #uri: git@gitee.com:RollBack2010/spring-cloud-configs.git #git仓库地址
+          #passphrase: 123456 #GIT公钥生成时如果设置了密码，则需输入，否则无需配置
+          uri: git@github.com:HistoryOfTangS/cloud-test.git #GitHub上面的git仓库名字
+          username: 804911919@qq.com #git帐号
+          password: 199644wu #git密码
+        ####读取分支(可不配置)
+        #1.不配置默认读取master分支下的文件
+        #2.配置了
+        #通过http://127.0.0.1:5555/配置文件名 请求资源文件时，默认走配置的分支
+        #也可通过http://127.0.0.1:5555/分支名/配置文件名 获得其他分支的文件
+        #更多请求方式见下方
+      #label: master
+
+eureka: #注册中心配置
+  instance:
+    instance-id: config
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://192.168.1.2:8761/eureka/

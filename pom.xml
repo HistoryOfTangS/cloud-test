@@ -33,6 +33,7 @@
         <module>cloud-test-service</module>
         <module>auto-generator</module>
         <module>cloud-test-eureka</module>
+        <module>cloud-test-config</module>
     </modules>
 
 
