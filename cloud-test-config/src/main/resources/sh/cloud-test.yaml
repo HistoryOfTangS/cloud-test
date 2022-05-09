@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: main
-          image: registry.cloud.weizhi.com:5000/wzw/cloud-test-comfig:${version}
+          image: registry.cloud.weizhi.com:5000/wzw/cloud-test-config:${version}
           imagePullPolicy: IfNotPresent
           env:
             - name: SERVER_PORT
