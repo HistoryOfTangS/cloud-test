@@ -1,0 +1,47 @@
+# ==== manager-backend 管理后台 =====
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-test-config
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  progressDeadlineSeconds: 5
+  selector:
+    matchLabels:
+      app: cloud-test-config
+  template:
+    metadata:
+      labels:
+        app: cloud-test-comfig
+    spec:
+      containers:
+        - name: main
+          image: registry.cloud.weizhi.com:5000/wzw/cloud-test-comfig:${version}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SERVER_PORT
+              value: "80"
+          ports:
+            - containerPort: 80
+              name: http
+
+# ==== manager-alarm =====
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud-test-config
+spec:
+  type: NodePort
+  selector:
+    app: cloud-test-config
+  ports:
+    - port: 80
+      name: http
+      targetPort: http
+      nodePort: 30126
+
+

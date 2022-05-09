@@ -1,0 +1,11 @@
+spring:
+  # 配置中心
+  cloud:
+    config:
+      name: cloud-test-service
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        serviceId: cloud-test-config
+      fail-fast: true
