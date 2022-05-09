@@ -15,7 +15,7 @@ spec:
   template:
     metadata:
       labels:
-        app: cloud-test-comfig
+        app: cloud-test-config
     spec:
       containers:
         - name: main
