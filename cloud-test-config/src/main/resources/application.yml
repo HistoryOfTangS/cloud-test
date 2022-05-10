@@ -27,3 +27,10 @@ spring:
         #也可通过http://127.0.0.1:5555/分支名/配置文件名 获得其他分支的文件
         #更多请求方式见下方
       label: master
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
