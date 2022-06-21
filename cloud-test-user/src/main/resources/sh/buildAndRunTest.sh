@@ -28,7 +28,7 @@ cd /root/mytest/cloud-test
 git pull
 
 mvn -s settings.xml clean package -Dmaven.test.skip=true
-mvn -s settings.xml -Dmaven.test.skip=true dockerfile:build dockerfile:push -pl cloud-test-user/ -Ddocker.version=$version
+mvn -s settings.xml -Dmaven.test.skip=true dockerfile:build -pl cloud-test-user/ -Ddocker.version=$version
 
 
 #cd /root/sdts-docs/k8s/test-sdts/manager/
