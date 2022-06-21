@@ -28,8 +28,8 @@ spec:
             - containerPort: 80
               name: http
           command: [ "sh", "-c" ]
-            args:
-            - printenv SERVER_PORT;
+          args:
+          - printenv SERVER_PORT;
               java -jar cloud-test-user.jar;
 
 
