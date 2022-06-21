@@ -34,6 +34,7 @@
         <module>auto-generator</module>
         <module>cloud-test-eureka</module>
         <module>cloud-test-config</module>
+        <module>cloud-test-kubernetes-config</module>
     </modules>
 
 

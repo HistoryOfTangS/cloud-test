@@ -1,0 +1,9 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: spring-cloud-kubernetes-configmap
+  cloud:
+    kubernetes:
+      config:
+        name: spring-cloud-kubernetes-configmap

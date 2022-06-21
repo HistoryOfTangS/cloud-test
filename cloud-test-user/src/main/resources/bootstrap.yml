@@ -1,0 +1,49 @@
+
+server:
+  port: 8762 #端口号
+
+spring:
+  application:
+    name: cloud-test-user
+  cloud:
+    kubernetes:
+      ribbon:
+        mode: SERVICE
+      loadbalancer:
+        mode: SERVICE
+      config:
+        sources:
+          - name: ${spring.application.name}
+            namespace: default
+  datasource:
+    url: jdbc:mysql://192.168.0.244:3306/world?useSSL=false&useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=CONVERT_TO_NULL&jdbcCompliantTruncation=false&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: AaQwer_123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 50
+    maxWait: 60000
+
+# Mybatis Mate 配置
+mybatis-mate:
+  cert:
+    grant: thisIsTestLicense
+    license: as/bsBaSVrsA9FfjC/N77ruEt2/QZDrW+MHETNuEuZBra5mlaXZU+DE1ZvF8UjzlLCpH3TFVH3WPV+Ya7Ugiz1Rx4wSh/FK6Ug9lhos7rnsNaRB/+mR30aXqtlLt4dAmLAOCT56r9mikW+t1DDJY8TVhERWMjEipbqGO9oe1fqYCegCEX8tVCpToKr5J1g1V86mNsNnEGXujnLlEw9jBTrGxAyQroD7Ns1Dhwz1K4Y188mvmRQp9t7OYrpgsC7N9CXq1s1c2GtvfItHArkqHE4oDrhaPjpbMjFWLI5/XqZDtW3D+AVcH7pTcYZn6vzFfDZEmfDFV5fQlT3Rc+GENEg==
+
+# Logger Config
+logging:
+  level:
+    com.tangyinzi.cloudtestuser: debug
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+
+
