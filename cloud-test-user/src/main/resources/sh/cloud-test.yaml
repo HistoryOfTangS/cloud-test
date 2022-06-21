@@ -29,11 +29,8 @@ spec:
               name: http
           command: [ "sh", "-c" ]
             args:
-              - while true; do
-                echo -en '\n';
-                printenv SERVER_PORT;
-                sleep 10;
-                done;
+            - printenv SERVER_PORT;
+              java -jar cloud-test-user.jar;
 
 
 
