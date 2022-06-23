@@ -1,0 +1,50 @@
+# ==== manager-backend 管理后台 =====
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zkstandalone
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  progressDeadlineSeconds: 5
+  selector:
+    matchLabels:
+      app: zkstandalone
+  template:
+    metadata:
+      labels:
+        app: zkstandalone
+    spec:
+      containers:
+        - name: main
+          image: zkstandalone:v3.4.10
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 2181
+              name: http
+          command: [ "sh", "-c" ]
+          args:
+            - mkdir /opt/module/zookeeper/standalone/zookeeper-3.4.10/zkdata;
+              cp  /opt/module/zookeeper/standalone/zookeeper-3.4.10/conf/zoo_sample.cfg  /opt/module/zookeeper/standalone/zookeeper-3.4.10/conf/zoo.cfg;
+              /opt/module/zookeeper/standalone/zookeeper-3.4.10/bin/zkServer.sh start;
+
+
+# ==== manager-alarm =====
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zkstandalone
+spec:
+  type: NodePort
+  selector:
+    app: zkstandalone
+  ports:
+    - port: 2181
+      name: http
+      targetPort: http
+      nodePort: 2181
+
+

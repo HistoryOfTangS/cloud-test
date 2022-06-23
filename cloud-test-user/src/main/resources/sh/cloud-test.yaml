@@ -30,7 +30,7 @@ spec:
           command: [ "sh", "-c" ]
           args:
           - printenv SERVER_PORT;
-              java -jar cloud-test-user.jar;
+            java -jar cloud-test-user.jar;
 
 
 
