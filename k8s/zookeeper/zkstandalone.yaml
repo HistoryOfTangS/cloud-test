@@ -28,7 +28,7 @@ spec:
           args:
             - mkdir /opt/module/zookeeper/standalone/zookeeper-3.4.10/zkdata;
               cp  /opt/module/zookeeper/standalone/zookeeper-3.4.10/conf/zoo_sample.cfg  /opt/module/zookeeper/standalone/zookeeper-3.4.10/conf/zoo.cfg;
-              /opt/module/zookeeper/standalone/zookeeper-3.4.10/bin/zkServer.sh start;
+              sh /opt/module/zookeeper/standalone/zookeeper-3.4.10/bin/zkServer.sh start;
 
 
 # ==== manager-alarm =====
