@@ -28,6 +28,9 @@ spec:
           args:
             - mkdir /opt/module/zookeeper/standalone/zookeeper-3.4.10/zkdata;
               cp  /opt/module/zookeeper/standalone/zookeeper-3.4.10/conf/zoo_sample.cfg  /opt/module/zookeeper/standalone/zookeeper-3.4.10/conf/zoo.cfg;
+              echo "server.1=0.0.0.0:2888:3888" >> /opt/module/zookeeper/standalone/zookeeper-3.4.10/conf/zoo.cfg;
+              echo "server.2=0.0.0.0:2888:3888" >> /opt/module/zookeeper/standalone/zookeeper-3.4.10/conf/zoo.cfg;
+              echo "server.3=0.0.0.0:2888:3888" >> /opt/module/zookeeper/standalone/zookeeper-3.4.10/conf/zoo.cfg;
               sh /opt/module/zookeeper/standalone/zookeeper-3.4.10/bin/zkServer.sh start-foreground;
 
 
