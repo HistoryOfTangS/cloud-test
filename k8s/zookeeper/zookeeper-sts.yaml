@@ -85,7 +85,7 @@ spec:
       containers:
         - name: zookeeper
           imagePullPolicy: IfNotPresent
-          image: "harbor.jinyuyun.top/radondb/zookeeper:3.6.1"
+          image: harbor.jinyuyun.top/radondb/zookeeper:3.6.1
           resources:
             requests:
               memory: "500Mi"
